@@ -3,7 +3,9 @@
 capistrano-env_config
 =====================
 
-A tool for managing your environment variables across your cluster.
+A tool for managing your environment variables across your cluster. The library
+manipulates the system-wide environment variables by modifying the
+`/etc/environment` file.
 
 Usage
 -----
@@ -13,6 +15,20 @@ Usage
 * `cap env:unset[VARIABLE_NAME]` – To delete an environment variable
 * `cap env:set[VARIABLE_NAME=VALUE]` – To set an environment variable
 * `cap env:sync` – To synchronise the environment configuration across servers
+
+If you need to programatically manipulate the environment you can use the
+`Capistrano::EnvConfig::Environment` class like so:
+
+```ruby
+require 'capistrano/env_config/environment'
+
+environment = Capistrano::EnvConfig::Environment.new
+environment.list
+environment.get( 'VARIABLE' )
+environment.set( 'VARIABLE', 'VALUE' )
+environment.delete( 'VARIABLE' )
+environment.sync
+```
 
 Installation
 ------------

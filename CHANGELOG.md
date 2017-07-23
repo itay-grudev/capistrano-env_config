@@ -1,4 +1,16 @@
-__v0.0.1__
---------
+v0.0.2
+------
 
-*   Initial version.
+* Removed development dependency on `gem 'rake'`
+* Improved gem description. Added documentation about programatic use.
+* Added configuration option for roles that env_config sets/reads the
+    environment variables from.
+* Added an argument for specifically setting roles when using the `Environment`
+    class programatically.
+* Note: Implemented using the potentially unstable and subject to change
+    `Capistrano::Plugin` API.
+
+v0.0.1
+------
+
+* Initial version.
