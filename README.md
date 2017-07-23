@@ -30,6 +30,21 @@ environment.delete( 'VARIABLE' )
 environment.sync
 ```
 
+By default capistrano sets and reads the `/etc/environment` of all roles. This
+behaviour can be changed by setting:
+
+```ruby
+set :env_config_roles, [ :web, :app ]
+```
+
+The `list` and `sync` method also accept an optional argument for specifying the
+roles explicitly (overriding the value set in `:env_config_roles`):
+
+```ruby
+environment.list( :app )
+environment.list( [ :web, :app ] )
+```
+
 Installation
 ------------
 
