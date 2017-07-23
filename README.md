@@ -48,12 +48,18 @@ environment.sync( [ :web, :app ] )
 Installation
 ------------
 
-Add the gem to your Gemfile:
+Add the gem to your `Gemfile`:
 
-```gemfile
+```ruby
 group :development do
   gem 'capistrano-env_config'
 end
+```
+
+And the following line to your `Capfile`:
+
+```ruby
+require 'capistrano/env_config'
 ```
 
 In your server provisioning script, make sure the deploy user has write access
