@@ -1,0 +1,15 @@
+# Ignore Gem builds
+*.gem
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# Ignore code coverage reports
+/coverage
+
+# Ignore generated documentation
+doc/
+.yardoc/
+
+# Ignore IDE files
+.vscode/
