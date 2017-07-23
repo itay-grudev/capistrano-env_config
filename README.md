@@ -42,7 +42,7 @@ roles explicitly (overriding the value set in `:env_config_roles`):
 
 ```ruby
 environment.list( :app )
-environment.list( [ :web, :app ] )
+environment.sync( [ :web, :app ] )
 ```
 
 Installation
