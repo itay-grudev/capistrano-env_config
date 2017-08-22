@@ -1,4 +1,5 @@
-require 'capistrano/env_config/environment'
+require 'byebug'
+require_relative '../env_config/environment'
 
 namespace :env do
   desc 'Lists the environment variables set across servers'
@@ -16,33 +17,39 @@ namespace :env do
   end
 
   desc 'Sets an environment variable'
-  task :set, :variable do |task, args|
-    abort 'No key-value pair specified.' if args[:variable].nil?
-    key, value = args[:variable].split( '=', 2 )
+  task :set do |task, args|
+    abort 'No key-value pair specified.' if args.extras.empty?
     environment = Capistrano::EnvConfig::Environment.new
-    environment.set( key, value )
+    args.extras.each do |variable|
+      key, value = variable.split( '=', 2 )
+      environment.set( key, value )
+    end
     environment.sync
   end
 
   desc 'Prints an environment variable'
-  task :get, :variable do |task, args|
+  task :get do |task, args|
     environment = Capistrano::EnvConfig::Environment.new
-    variable = environment.get( args[:variable] )
-    if variable.nil?
-      abort "No such variable: #{args[:variable].upcase}"
-    else
-      puts "#{args[:variable].upcase}=#{variable}"
+    args.extras.each do |variable|
+      value = environment.get( variable )
+      if value.nil?
+        STDERR.puts "No such variable: #{variable.upcase}"
+      else
+        puts "#{variable.upcase}=#{value}"
+      end
     end
   end
 
   desc 'Removes a environment variable'
-  task :unset, :variable do |task, args|
+  task :unset do |task, args|
     environment = Capistrano::EnvConfig::Environment.new
-    if environment.get( args[:variable].upcase ).nil?
-      abort "No such variable: #{args[:variable].upcase}"
-    else
-      environment.delete( args[:variable].upcase )
-      environment.sync
+    args.extras.each do |variable|
+      if environment.get( variable.upcase ).nil?
+        abort "No such variable: #{variable.upcase}"
+      else
+        environment.delete( variable.upcase )
+      end
     end
+    environment.sync
   end
 end

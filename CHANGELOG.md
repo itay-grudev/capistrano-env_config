@@ -1,3 +1,8 @@
+v0.0.3
+------
+
+* Added support for specifying multiple environment variables.
+
 v0.0.2
 ------
 

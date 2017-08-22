@@ -1,2 +1,2 @@
-require 'capistrano/env_config/version'
-require 'capistrano/env_config/environment'
+require_relative 'capistrano/env_config/version'
+require_relative 'capistrano/env_config/environment'

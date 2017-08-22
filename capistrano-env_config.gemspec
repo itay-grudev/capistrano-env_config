@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require 'capistrano/env_config/version'
+require_relative 'lib/capistrano/env_config/version'
 
 Gem::Specification.new do |spec|
   spec.name        = 'capistrano-env_config'

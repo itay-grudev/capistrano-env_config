@@ -11,9 +11,9 @@ Usage
 -----
 
 * `cap env:list` – To list current environment configuration
-* `cap env:get[VARIABLE_NAME]` – To get the value of specific variable
-* `cap env:unset[VARIABLE_NAME]` – To delete an environment variable
-* `cap env:set[VARIABLE_NAME=VALUE]` – To set an environment variable
+* `cap env:get[VARIABLE_NAME, VARIABLE_NAME, ...]` – To get the value of a list of variables
+* `cap env:unset[VARIABLE_NAME, VARIABLE_NAME, ...]` – To delete environment variables
+* `cap env:set[VARIABLE_NAME=VALUE, VARIABLE_NAME=VALUE, ...]` – To set environment variables
 * `cap env:sync` – To synchronise the environment configuration across servers
 
 If you need to programatically manipulate the environment you can use the
@@ -22,12 +22,12 @@ If you need to programatically manipulate the environment you can use the
 ```ruby
 require 'capistrano/env_config/environment'
 
-environment = Capistrano::EnvConfig::Environment.new
-environment.list
-environment.get( 'VARIABLE' )
-environment.set( 'VARIABLE', 'VALUE' )
-environment.delete( 'VARIABLE' )
-environment.sync
+environment = Capistrano::EnvConfig::Environment.new # Reads and loads /etc/environment from all servers
+environment.list # Returns a hash of all environment variables
+environment.get( 'VARIABLE' ) # Gets a variable by name
+environment.set( 'VARIABLE', 'VALUE' ) # Sets a variable
+environment.delete( 'VARIABLE' ) # Deletes a variable
+environment.sync # Uploads current confifuration to all servers
 ```
 
 By default capistrano sets and reads the `/etc/environment` of all roles. This
@@ -37,7 +37,7 @@ behaviour can be changed by setting:
 set :env_config_roles, [ :web, :app ]
 ```
 
-The `list` and `sync` method also accept an optional argument for specifying the
+The `new` and `sync` methods also accept an optional argument for specifying
 roles explicitly (overriding the value set in `:env_config_roles`):
 
 ```ruby

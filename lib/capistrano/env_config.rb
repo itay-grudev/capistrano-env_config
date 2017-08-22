@@ -15,5 +15,5 @@ end
 
 install_plugin Capistrano::EnvConfig
 
-require 'capistrano/env_config/environment'
-require 'capistrano/env_config/version'
+require_relative 'env_config/environment'
+require_relative 'env_config/version'
