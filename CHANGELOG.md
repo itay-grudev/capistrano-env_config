@@ -1,3 +1,8 @@
+v0.0.4
+------
+
+* Bug Fix: Call to an unnecesarry external library
+
 v0.0.3
 ------
 
