@@ -1,4 +1,3 @@
-require 'byebug'
 require_relative '../env_config/environment'
 
 namespace :env do
