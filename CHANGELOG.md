@@ -1,12 +1,12 @@
 v0.0.5
 ------
 
-* `env:list` now outputs the enironment variables sorted.
+* `env:list` now outputs the environment variables sorted.
 
 v0.0.4
 ------
 
-* Bug Fix: Call to an unnecesarry external library
+* Bug Fix: Call to an unnecessary external library
 
 v0.0.3
 ------
