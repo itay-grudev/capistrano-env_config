@@ -1,3 +1,8 @@
+v0.0.5
+------
+
+* `env:list` now outputs the enironment variables sorted.
+
 v0.0.4
 ------
 

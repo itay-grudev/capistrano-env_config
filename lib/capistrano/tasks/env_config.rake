@@ -4,7 +4,7 @@ namespace :env do
   desc 'Lists the environment variables set across servers'
   task :list do
     environment = Capistrano::EnvConfig::Environment.new
-    environment.list.each do |key, value|
+    environment.list.sort.each do |key, value|
       puts key + '=' + value
     end
   end
