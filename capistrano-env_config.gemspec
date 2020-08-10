@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors     = [ 'Itay Grudev' ]
   spec.email       = [ 'itay+capistrano-env_config+github.com[]grudev.com' ]
   spec.homepage    = 'https://github.com/itay-grudev/capistrano-env_config'
-  spec.license     = 'GPL-3.0'
+  spec.license     = 'MIT'
   spec.summary     = 'A tool for managing your environment variables across your cluster.'
   spec.description = <<-EOF.gsub(/^\s+/, '')
     EnvConfig is a tool for setting and syncing environment variables across
