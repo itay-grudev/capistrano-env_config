@@ -27,7 +27,7 @@ environment.list # Returns a hash of all environment variables
 environment.get( 'VARIABLE' ) # Gets a variable by name
 environment.set( 'VARIABLE', 'VALUE' ) # Sets a variable
 environment.delete( 'VARIABLE' ) # Deletes a variable
-environment.sync # Uploads current confifuration to all servers
+environment.sync # Uploads current configuration to all servers
 ```
 
 By default capistrano sets and reads the `/etc/environment` of all roles. This
