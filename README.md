@@ -77,5 +77,4 @@ License
 
 Copyright Itay Grudev (c) 2017.
 
-This gem and all associated documentation is distributed under the terms of the
-GNU GPL v3 license.
+This gem and all associated documentation is distributed under the terms of the MIT license.
